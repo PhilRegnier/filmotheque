@@ -33,7 +33,7 @@
 -title: String
 -releaseYear: Long
 -length: Long
--sypnosis: String
+-synopsis: String
 
 --
 +getAverageRating

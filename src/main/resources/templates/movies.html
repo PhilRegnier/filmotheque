@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ENI movies</title>
+</head>
+<body>
+
+	<header data-th-fragment="_header"></header>
+	
+	<h1>Les films de l'ENI</h1>
+	
+	<table>
+		<thead>
+			<tr>Genre</tr>
+			<tr>Année</tr>
+			<tr>Titre</tr>
+			<tr>Réalisateur</tr>
+			<tr>Actions</tr>
+		</thead>
+		<tr data-th-each="film: ${movies}">
+			<td data-th-text="${film.genre.name}"/>
+			<td data-th-text="${film.releaseYear}"/>
+			<td data-th-text="${film.title}"/>
+			<td>toto</td>
+			<td><a data-th-href="@{/movies(id=${film.id})}">détail</a>
+		</tr>
+		
+	</table>
+
+</body>
+</html>
