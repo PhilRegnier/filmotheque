@@ -21,20 +21,18 @@ public class FilmsServiceImpl implements FilmsService
 
 	@Override
 	public List<Film> getFilms() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.filmsDao.selectAllFilms();
 	}
 
 	@Override
 	public Film getFilmById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.filmsDao.selectFilmById(id);
 	}
 
 	@Override
 	public void insertFilm(Film film) {
-		// TODO Auto-generated method stub
-		
+		this.filmsDao.insertFilm(film);		
 	}
 
 }
