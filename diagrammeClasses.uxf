@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>96</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Person
+--
+-id: Long
+-lastName: String
+-firstName: String
+-birth: LocalDateTime
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>392</y>
+      <w>168</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>Film
+--
+-id: Long
+-title: String
+-releaseYear: Long
+-length: Long
+-sypnosis: String
+
+--
++getAverageRating
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>160</y>
+      <w>168</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-id: Long
+-pseudo: String
+-firstName: String
+-lastName: String
+-password: String
+-email: String
+-admin: boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>184</y>
+      <w>64</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=1
+director</panel_attributes>
+    <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>600</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Genre
+--
+-id: Long
+-name: String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>520</y>
+      <w>32</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>184</y>
+      <w>48</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=*
+actor</panel_attributes>
+    <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>400</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Review
+--
+-comment: String
+-date: LocalDateTime
+-rating: byte</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>272</y>
+      <w>32</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>440</y>
+      <w>168</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>416</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Award
+--
+year: Long
+fg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>128</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=1
+fg=gray</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>104</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Country
+--
+id: Long
+name: String
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>600</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Event
+--
+id: Long
+name: String
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>664</x>
+      <y>432</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=0..n
+fg=gray</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>464</y>
+      <w>40</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=1..n
+fg=gray</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
