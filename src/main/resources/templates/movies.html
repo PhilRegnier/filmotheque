@@ -22,7 +22,7 @@
 			<td data-th-text="${film.genre.name}"/>
 			<td data-th-text="${film.releaseYear}"/>
 			<td data-th-text="${film.title}"/>
-			<td>toto</td>
+			<td data-th-text="${film.director.firstname + ' ' + film.director.lastname}/>
 			<td><a data-th-href="@{/movies(id=${film.id})}">détail</a>
 		</tr>
 		

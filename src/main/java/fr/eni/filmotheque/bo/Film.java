@@ -1,5 +1,6 @@
 package fr.eni.filmotheque.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Film 
@@ -10,11 +11,10 @@ public class Film
 	private long 	duration;
 	private String	synopsis;
 	private Genre	genre;
-	private List<Person> person;
+	private List<Person> actors;
 	private Person 	director;
 	private List<Review>	reviews;
-	
-	
+		
 	public Film() {
 		super();
 	}
@@ -25,6 +25,9 @@ public class Film
 		this.releaseYear = releaseYear;
 		this.duration = duration;
 		this.synopsis = synopsis;
+		
+		this.actors = new ArrayList<Person>();
+		this.reviews = new ArrayList<Review>();
 	}
 
 	public long getId() {
@@ -62,13 +65,16 @@ public class Film
 	}
 	public void setGenre(Genre genre) {
 		this.genre = genre;
+	}	
+	public List<Person> getActors() {
+		return actors;
 	}
-	public List<Person> getPerson() {
-		return person;
+	public void setActor(List<Person> actors) {
+		this.actors = actors;
 	}
-	public void setPerson(List<Person> person) {
-		this.person = person;
-	}
+	public void addActor(Person actor) {
+		this.actors.add(actor);
+	}	
 	public Person getDirector() {
 		return director;
 	}
@@ -80,8 +86,5 @@ public class Film
 	}
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
-	}
-	
-	
-	
+	}	
 }
