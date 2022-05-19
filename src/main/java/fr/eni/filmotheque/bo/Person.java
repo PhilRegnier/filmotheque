@@ -21,8 +21,8 @@ public class Person
 	public Person(String firstName, String lastName, LocalDate birthday) {
 		this();
 		this.firstName = firstName;
-		this.lastName = lastName;
-		this.birthday = birthday;
+		this.lastName  = lastName;
+		this.birthday  = birthday;
 	}
 
 	public long getId() {

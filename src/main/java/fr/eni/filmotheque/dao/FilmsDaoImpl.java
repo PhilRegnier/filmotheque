@@ -37,8 +37,10 @@ public class FilmsDaoImpl implements FilmsDao
 		filmTmp = new Film("The BFG",2016,654,"truc");
 		filmTmp.setId(3);
 		filmTmp.setGenre(genresDao.selectById(2));
+		filmTmp.addActor(personDao.selectPersonById(0));
 		filmTmp.setDirector(personDao.selectPersonById(3));
 		this.allFilms.add(filmTmp);
+		
 	}
 
 	@Override

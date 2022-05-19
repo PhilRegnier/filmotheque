@@ -2,6 +2,7 @@ package fr.eni.filmotheque.dao;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,8 @@ public class PersonsDaoImpl implements PersonsDao
 		
 	public PersonsDaoImpl() {
 		
+		this.persons = new ArrayList<Person>(); 
+				
 		Person personTmp;
 		
 		personTmp = new Person("Sam","Neill",LocalDate.of(1947, 9, 14));
@@ -37,6 +40,8 @@ public class PersonsDaoImpl implements PersonsDao
 		personTmp = new Person("David","Cronenberg",LocalDate.of(1943, 3, 15));
 		personTmp.setId(5);		
 		this.persons.add(personTmp);
+		
+		System.out.println(this.persons);
 	}
 	
 	public List<Person> getPersons() {
