@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>96</y>
-      <w>168</w>
-      <h>96</h>
+      <x>360</x>
+      <y>30</y>
+      <w>210</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Person
 --
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>392</y>
-      <w>168</w>
-      <h>136</h>
+      <x>390</x>
+      <y>400</y>
+      <w>210</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Film
 --
@@ -44,10 +44,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>160</y>
-      <w>168</w>
-      <h>120</h>
+      <x>0</x>
+      <y>110</y>
+      <w>210</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -65,10 +65,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>184</y>
-      <w>64</w>
-      <h>224</h>
+      <x>530</x>
+      <y>140</y>
+      <w>80</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=1
@@ -78,10 +78,10 @@ director</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>600</y>
-      <w>168</w>
-      <h>64</h>
+      <x>390</x>
+      <y>660</y>
+      <w>210</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Genre
 --
@@ -94,10 +94,10 @@ director</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>520</y>
-      <w>32</w>
-      <h>96</h>
+      <x>480</x>
+      <y>560</y>
+      <w>40</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=*</panel_attributes>
@@ -106,10 +106,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>184</y>
-      <w>48</w>
-      <h>224</h>
+      <x>410</x>
+      <y>140</y>
+      <w>60</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=*
@@ -119,10 +119,10 @@ actor</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>400</y>
-      <w>168</w>
-      <h>104</h>
+      <x>0</x>
+      <y>410</y>
+      <w>210</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Review
 --
@@ -134,10 +134,10 @@ actor</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>272</y>
-      <w>32</w>
-      <h>144</h>
+      <x>110</x>
+      <y>250</y>
+      <w>40</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=*</panel_attributes>
@@ -146,10 +146,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>352</x>
-      <y>440</y>
-      <w>168</w>
-      <h>32</h>
+      <x>200</x>
+      <y>460</y>
+      <w>210</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=*</panel_attributes>
@@ -158,10 +158,10 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>784</x>
-      <y>416</y>
-      <w>168</w>
-      <h>56</h>
+      <x>740</x>
+      <y>430</y>
+      <w>210</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Award
 --
@@ -173,10 +173,10 @@ fg=gray
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>128</y>
-      <w>136</w>
-      <h>32</h>
+      <x>560</x>
+      <y>70</y>
+      <w>170</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=1
@@ -186,10 +186,10 @@ fg=gray</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>760</x>
-      <y>104</y>
-      <w>168</w>
-      <h>56</h>
+      <x>710</x>
+      <y>40</y>
+      <w>210</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Country
 --
@@ -201,10 +201,10 @@ fg=gray</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
-      <y>600</y>
-      <w>168</w>
-      <h>56</h>
+      <x>750</x>
+      <y>660</y>
+      <w>210</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Event
 --
@@ -216,10 +216,10 @@ fg=gray</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>664</x>
-      <y>432</y>
-      <w>136</w>
-      <h>32</h>
+      <x>590</x>
+      <y>450</y>
+      <w>170</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=0..n
@@ -229,10 +229,10 @@ fg=gray</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>848</x>
-      <y>464</y>
-      <w>40</w>
-      <h>152</h>
+      <x>820</x>
+      <y>490</y>
+      <w>50</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1..n

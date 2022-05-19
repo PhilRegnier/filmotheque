@@ -16,7 +16,6 @@ public class Film
 	private List<Review>	reviews;
 		
 	public Film() {
-		super();
 	}
 		
 	public Film(String title, long releaseYear, long duration, String synopsis) {
