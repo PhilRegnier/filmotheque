@@ -17,12 +17,10 @@ public class FilmsController
 	private FilmsService filmsService;
 
 	@Autowired
-	public FilmsController(FilmsService filmsService) {
-		
+	public FilmsController(FilmsService filmsService) {	
 		this.filmsService = filmsService;
 	}
 	
-
 	@GetMapping({"/movies","/films"})
 	public String movies(Model model)
 	{

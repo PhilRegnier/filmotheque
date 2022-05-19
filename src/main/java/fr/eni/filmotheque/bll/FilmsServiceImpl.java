@@ -15,7 +15,6 @@ public class FilmsServiceImpl implements FilmsService
 	
 	@Autowired
 	public FilmsServiceImpl(FilmsDao filmsDao) {
-		
 		this.filmsDao = filmsDao;
 	}
 

@@ -33,8 +33,6 @@ public class PersonsDaoImpl implements PersonsDao
 		personTmp.setId(3);		
 		this.persons.add(personTmp);
 		
-		
-		
 		personTmp = new Person("Steven","Spielberg",LocalDate.of(1946, 12, 18));
 		personTmp.setId(4);		
 		this.persons.add(personTmp);
