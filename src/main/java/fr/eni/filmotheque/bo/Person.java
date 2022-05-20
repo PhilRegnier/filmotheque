@@ -1,8 +1,6 @@
 package fr.eni.filmotheque.bo;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Person 
 {
@@ -56,6 +54,7 @@ public class Person
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
+		
 /*
 	public List<Film> getPlayedFilms() {
 		return playedFilms;

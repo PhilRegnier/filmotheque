@@ -1,7 +1,6 @@
 package fr.eni.filmotheque.dao;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,5 +68,4 @@ public class PersonsDaoImpl implements PersonsDao
 		
 		return this.persons.get((int) id);
 	}
-
 }
