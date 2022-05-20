@@ -2,9 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Ajouter un film</title>
 </head>
 <body>
-
+	<header data-th-insert="fragments/header :: header"></header>
+	
+	<h1>Ajouter un film</h1>
+	<form action="#" data-th-action="@{/addfilm}" method="post" data-th-object="${film}">
+		<fieldset>
+			<label for="TitreInput">Titre :</label>
+			<input type="text" id="titreInput" data-th-field="*{title}" />
+			<label for="anneeInput">Année :</label>
+			<input type="number" id="anneeInput" data-th-field="*{releaseYear}" />
+		</fieldset>
+		<label for="genre">Genre :</label>
+		<select id="genre" data-th-field="*{genre}">
+			<option
+				data-th-each="genre : ${@genres}"
+				data-th-value="genre.id"
+				data-th-text="${genre.name}"></option>
+		</select>
+		<button type="submit">Ajouter</button>
+	</form>
 </body>
 </html>

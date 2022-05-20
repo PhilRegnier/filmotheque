@@ -41,11 +41,10 @@ public class PersonsDaoImpl implements PersonsDao
 		personTmp.setId(5);		
 		this.persons.add(personTmp);
 		
-		System.out.println(this.persons);
 	}
 	
 	public List<Person> getPersons() {
-		return persons;
+		return this.persons;
 	}
 
 	public void setPerson(List<Person> persons) {
@@ -54,19 +53,16 @@ public class PersonsDaoImpl implements PersonsDao
 
 	@Override
 	public List<Person> selectPersonByFilm(Film film) {
-		
 		return null;
 	}
 
 	@Override
 	public void insertPerson(Person person) {
-		
 		this.persons.add(person);
 	}
 
 	@Override
-	public Person selectPersonById(long id) {
-		
+	public Person selectPersonById(Integer id) {
 		return this.persons.get(0);
 	}
 

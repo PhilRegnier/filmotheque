@@ -7,6 +7,6 @@ import fr.eni.filmotheque.bo.Film;
 public interface FilmsService 
 {
 	public List<Film> getFilms();
-	public Film getFilmById(long id);
+	public Film getFilmById(Integer id);
 	public void insertFilm(Film film);
 }

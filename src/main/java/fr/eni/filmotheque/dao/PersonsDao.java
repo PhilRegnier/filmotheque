@@ -8,6 +8,6 @@ import fr.eni.filmotheque.bo.Person;
 public interface PersonsDao 
 {
 	public List<Person> selectPersonByFilm(Film film);
-	public Person selectPersonById(long id);	
+	public Person selectPersonById(Integer id);	
 	public void insertPerson(Person person);
 }

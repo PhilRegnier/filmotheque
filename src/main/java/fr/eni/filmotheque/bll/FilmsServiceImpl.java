@@ -24,8 +24,7 @@ public class FilmsServiceImpl implements FilmsService
 	}
 
 	@Override
-	public Film getFilmById(long id) {
-		
+	public Film getFilmById(Integer id) {
 		return this.filmsDao.selectFilmById(id);
 	}
 
