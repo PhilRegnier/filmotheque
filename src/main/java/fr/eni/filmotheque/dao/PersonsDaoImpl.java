@@ -67,7 +67,7 @@ public class PersonsDaoImpl implements PersonsDao
 	@Override
 	public Person selectPersonById(long id) {
 		
-		return this.persons.get(0);
+		return this.persons.get((int) id);
 	}
 
 }

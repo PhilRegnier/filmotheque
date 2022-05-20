@@ -1,27 +1,36 @@
 <!DOCTYPE html>
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>ENI movies</title>
 </head>
 <body>
-
 	<header data-th-fragment="_header"></header>
 	
 	<h1>Les films de l'ENI</h1>
 		
 	<label>Genre : </label>
-	<input type="text" id="genre"  name="genre" disabled>
+	<input type="text" id="genre"  name="genre" disabled data-th-attr="value=${movie.genre.name}"><br>
+	
 	<label>Année : </label>
-	<input type="text" id="annee"  name="annee" disabled>
+	<input type="text" id="annee"  name="annee" disabled data-th-attr="value=${movie.releaseYear}"><br>
+	
 	<label>Titre : </label>
-	<input type="text" id="titre"  name="titre" disabled>
+	<input type="text" id="titre"  name="titre" disabled data-th-attr="value=${movie.title}"><br>
+	
 	<label>Réalisateur : </label>
-	<input type="text" id="realisateur"  name="realisateur" disabled>
+	<input type="text" id="realisateur"  name="realisateur" disabled data-th-attr="value=${movie.director.firstName}"><br>
+	
 	<label>Durée : </label>
-	<input type="text" id="duree"  name="duree" disabled>
+	<input type="text" id="duree"  name="duree" disabled data-th-attr="value=${movie.duration}"><br>
+	
 	<label>Acteur(s) : </label>
-	<textarea id="duree"  name="duree" disabled></textarea>
+
+	<ul th:each="actor: ${movie.actors}">
+		<li th:text="${actor.firstName}"/>
+	</ul>
+	
 
 </body>
 </html>
