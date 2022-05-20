@@ -7,6 +7,6 @@ import fr.eni.filmotheque.bo.Film;
 public interface FilmsDao {
 	
 	public List<Film> selectAllFilms();
-	public Film selectFilmById(long id);
+	public Film selectFilmById(Integer id);
 	public void insertFilm(Film film);
 }
