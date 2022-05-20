@@ -22,8 +22,7 @@ public class FilmsController
 		this.filmsService = filmsService;
 	}
 	
-
-	@GetMapping({"/movies","/films"})
+	@GetMapping({"/", "/movies", "/films"})
 	public String movies(Model model)
 	{
 		List<Film> list = filmsService.getFilms();
