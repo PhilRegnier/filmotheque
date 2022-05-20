@@ -18,6 +18,7 @@ public class Film {
 	}
 
 	public Film(String title, Integer releaseYear, Integer duration, String synopsis) {
+
 		this.title 		 = title;
 		this.releaseYear = releaseYear;
 		this.duration 	 = duration;
@@ -101,5 +102,9 @@ public class Film {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+
+	public void addReview(Review review) {
+		this.reviews.add(review);
 	}
 }

@@ -32,7 +32,11 @@
 	<ul th:each="actor: ${movie.actors}">
 		<li th:text="${actor.firstName}"/>
 	</ul>
-	
 
+	<label>Commentaires(s) : </label>
+	<ul th:each="review: ${movie.reviews}">
+		<li th:text="${review.comment}"/>
+	</ul>
+	
 </body>
 </html>
