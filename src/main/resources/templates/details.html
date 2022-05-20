@@ -9,24 +9,17 @@
 	<header data-th-insert="fragments/header :: header"></header>
 	
 	<h1>Les films de l'ENI</h1>
-	
-	<table>
-		<thead>
-			<tr>Genre</tr>
-			<tr>Année</tr>
-			<tr>Titre</tr>
-			<tr>Réalisateur</tr>
-			<tr>Actions</tr>
-		</thead>
-		<tr data-th-each="film: ${movies}">
-			<td data-th-text="${film.genre.name}"/>
-			<td data-th-text="${film.releaseYear}"/>
-			<td data-th-text="${film.title}"/>
-			<td data-th-text="${film.director.firstName} + ' ' + ${film.director.lastName}"/>
-			<td><a data-th-href="@{/movies(id=${film.id})}">détail</a>
-		</tr>
 		
-	</table>
+	<label>Genre : </label>
+	<input type="text" id="genre"  name="genre" disabled>
+	<label>Année : </label>
+	<input type="text" id="annee"  name="annee" disabled>
+	<label>Titre : </label>
+	<input type="text" id="titre"  name="titre" disabled>
+	<label>Réalisateur : </label>
+	<input type="text" id="realisateur"  name="realisateur" disabled>
+	<label>Durée : </label>
+	<input type="text" id="duree"  name="duree" disabled>
 
 </body>
 </html>

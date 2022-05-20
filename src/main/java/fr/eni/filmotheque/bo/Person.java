@@ -1,6 +1,7 @@
 package fr.eni.filmotheque.bo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Person 
@@ -9,15 +10,16 @@ public class Person
 	private String 			firstName;
 	private String 			lastName;
 	private LocalDate	 	birthday;
-	private List<Film> 		playedFilms;
-	private List<Film> 		directedFilms;
+	//private List<Film> 		playedFilms;
+	//private List<Film> 		directedFilms;
 	
 	public Person() {
-		super();
+		//this.playedFilms = new ArrayList<>();
+		//this.directedFilms = new ArrayList<>();
 	}
 
 	public Person(String firstName, String lastName, LocalDate birthday) {
-		super();
+		this();
 		this.firstName = firstName;
 		this.lastName  = lastName;
 		this.birthday  = birthday;
@@ -54,7 +56,7 @@ public class Person
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
-
+/*
 	public List<Film> getPlayedFilms() {
 		return playedFilms;
 	}
@@ -79,5 +81,5 @@ public class Person
 	public void addDirectedFilm(Film film)
 	{
 		this.directedFilms.add(film);
-	}
+	}*/
 }
