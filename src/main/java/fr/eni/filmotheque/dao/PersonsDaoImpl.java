@@ -45,7 +45,6 @@ public class PersonsDaoImpl implements PersonsDao
 		personTmp.setMetier(metierDao.selectMetierById(0));		
 		this.persons.add(personTmp);
 		
-		System.out.println(this.persons);
 	}
 	
 	@Override
@@ -53,21 +52,23 @@ public class PersonsDaoImpl implements PersonsDao
 		return this.persons;
 	}
 
+	public void setPerson(List<Person> persons) 
+	{
+		this.persons = persons;
+	}
+
 	@Override
 	public List<Person> selectPersonByFilm(Film film) {
-		
 		return null;
 	}
 
 	@Override
 	public void insertPerson(Person person) {
-		
 		this.persons.add(person);
 	}
 
 	@Override
-	public Person selectPersonById(long id) {
-		
-		return this.persons.get((int) id);
+	public Person selectPersonById(Integer id) {
+		return this.persons.get(0);
 	}
 }

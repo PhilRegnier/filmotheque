@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Person 
 {
-	private long 			id;
+	private Integer 		id;
 	private String 			firstName;
 	private String 			lastName;
 	private LocalDate	 	birthday;
@@ -25,11 +25,11 @@ public class Person
 		this.birthday  = birthday;
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -20,23 +20,23 @@ public class ReviewDaoImpl implements ReviewDao
 		Review reviewsTmp;
 		
 		reviewsTmp = new Review("Super Film", 4, LocalDateTime.of(1990, 1, 10, 11, 12));
-		reviewsTmp.setId(1l);
+		reviewsTmp.setId(1);
 		reviewsTmp.setUser(null);
 		reviewsTmp.setUser(userDao.selectUserById(0));
 		reviews.add(reviewsTmp);
 				
 		reviewsTmp = new Review("Bof un bon gros navet", 1, LocalDateTime.of(1992, 2, 22, 12, 13));
-		reviewsTmp.setId(2l);
+		reviewsTmp.setId(2);
 		reviewsTmp.setUser(userDao.selectUserById(1));
 		reviews.add(reviewsTmp);
 		
 		reviewsTmp = new Review("Trop cool", 3, LocalDateTime.of(1993, 3, 23, 13, 14));
-		reviewsTmp.setId(3l);
+		reviewsTmp.setId(3);
 		reviewsTmp.setUser(userDao.selectUserById(1));
 		reviews.add(reviewsTmp);
 		
 		reviewsTmp = new Review("bien, à revoir", 2, LocalDateTime.of(1994, 4, 24, 14, 15));
-		reviewsTmp.setId(4l);
+		reviewsTmp.setId(4);
 		reviewsTmp.setUser(userDao.selectUserById(2));
 		reviews.add(reviewsTmp);
 	}

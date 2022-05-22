@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Review 
 {
-	private Long 			id;
+	private Integer			id;
 	private String			comment;
 	private Integer 		rating;
 	private	LocalDateTime	date;
@@ -18,11 +18,11 @@ public class Review
 		this.date = date;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

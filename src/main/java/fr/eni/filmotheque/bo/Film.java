@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Film {
-	private long 		 id;
+	private Integer 	 id;
 	private String 		 title;
-	private long 		 releaseYear;
-	private long 		 duration;
+	private Integer 	 releaseYear;
+	private Integer 	 duration;
 	private String 		 synopsis;
 	private Genre 		 genre;
 	private List<Person> actors;
@@ -17,8 +17,8 @@ public class Film {
 	public Film() {
 	}
 
-	public Film(String title, long releaseYear, long duration, String synopsis) {
-		
+	public Film(String title, Integer releaseYear, Integer duration, String synopsis) {
+
 		this.title 		 = title;
 		this.releaseYear = releaseYear;
 		this.duration 	 = duration;
@@ -28,11 +28,11 @@ public class Film {
 		this.reviews 	 = new ArrayList<Review>();
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -44,19 +44,19 @@ public class Film {
 		this.title = title;
 	}
 
-	public long getReleaseYear() {
+	public Integer getReleaseYear() {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(long releaseYear) {
+	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
-	public long getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
 
-	public void setDuration(long duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 

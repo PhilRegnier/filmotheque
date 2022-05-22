@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
+
 import fr.eni.filmotheque.bll.FilmsService;
 import fr.eni.filmotheque.bll.PersonService;
+import fr.eni.filmotheque.bo.Film;
 import fr.eni.filmotheque.bo.Person;
 
 @Controller
@@ -25,22 +27,34 @@ public class FilmsController
 	private PersonService personService;
 	
 	@Autowired
-	public FilmsController(FilmsService filmsService,PersonService personService) 
+	public FilmsController(FilmsService filmsService,PersonService personService)
 	{	
 		this.filmsService  = filmsService;
 		this.personService = personService;
 	}
 	
-	@GetMapping({"/films"})
+	@GetMapping({"/", "/movies", "/films"})
 	public String movies(Model model)
-	{		
-		model.addAttribute("movies",filmsService.getFilms());
-		
+	{
+		model.addAttribute("movies", filmsService.getFilms());
 		return "movies";
-	}	
+	}
+	
+	@GetMapping({"/addfilm", "/addmovie"})
+	public String add(Model model)
+	{
+		model.addAttribute("film", new Film());
+		return "addmovie";
+	}
+	
+	@PostMapping({"/addfilm", "/addmovie"})
+	public String add( @ModelAttribute("film") Film film) {
+		System.out.println(film.getTitle() + ' ' + film.getGenre());
+		return "redirect:movies";
+	}
 	
 	@GetMapping({"/movies"})
-	public String movies(@RequestParam long id, Model model)
+	public String movies(@RequestParam Integer id, Model model)
 	{	
 		model.addAttribute("movie",filmsService.getFilmById(id));
 		
@@ -64,7 +78,6 @@ public class FilmsController
 	@PostMapping({"/ajoutPerson"})
 	public String traitForm(Model model,@ModelAttribute("person") Person personne)	
 	{
-		//model.getAttribute("firstName")
 		personService.insertPerson(personne);
 		
 		return "redirect:addMovie";

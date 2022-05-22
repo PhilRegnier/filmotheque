@@ -1,7 +1,9 @@
 package fr.eni.filmotheque.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,30 +13,31 @@ import fr.eni.filmotheque.bo.Genre;
 public class GenresDaoImpl implements GenresDao {
 
 	private List<Genre> genres;
+	private Map<Integer, Genre> mapGenres;
 	
 	public GenresDaoImpl() {
 		this.genres = new ArrayList<>();
-		
 		this.genres.add(new Genre(1,"Science-fiction"));
 		this.genres.add(new Genre(2,"Comédie"));
+		this.genres.add(new Genre(3,"Drame"));
+		
+		this.mapGenres = new HashMap<Integer, Genre>();
+		this.genres.forEach(g -> this.mapGenres.put(g.getId(), g));
 	}
 	
 	@Override
 	public List<Genre> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.genres;
 	}
 
 	@Override
 	public void insert(Genre genre) {
-		// TODO Auto-generated method stub
-		
+		this.genres.add(genre);
 	}
 
 	@Override
-	public Genre selectById(long id) {
-		int index = (int) (id - 1);
-		return this.genres.get(index);
+	public Genre selectById(Integer id) {
+		return this.mapGenres.get(id);
 	}
 
 }

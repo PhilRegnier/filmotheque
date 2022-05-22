@@ -26,7 +26,7 @@ public class PersonServiceImpl implements PersonService
 	}
 
 	@Override
-	public Person getPersonById(long id) 
+	public Person getPersonById(Integer id) 
 	{
 		return this.personsDao.selectPersonById(id);
 	}

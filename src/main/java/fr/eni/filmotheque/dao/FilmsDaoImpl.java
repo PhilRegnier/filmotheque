@@ -48,12 +48,11 @@ public class FilmsDaoImpl implements FilmsDao
 
 	@Override
 	public List<Film> selectAllFilms() {
-		// TODO Auto-generated method stub
 		return this.allFilms;
 	}
 
 	@Override
-	public Film selectFilmById(long id) {
+	public Film selectFilmById(Integer id) {
 		int index = (int) (id - 1);
 		return this.allFilms.get(index);
 	}

@@ -7,6 +7,6 @@ import fr.eni.filmotheque.bo.Person;
 public interface PersonService 
 {
 	public List<Person> getPersons();
-	public Person 		getPersonById(long id);
+	public Person 		getPersonById(Integer id);
 	public void 		insertPerson(Person person);
 }
