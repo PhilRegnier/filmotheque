@@ -2,30 +2,40 @@ package fr.eni.filmotheque.bo;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "Persons")
 public class Person 
 {
+	@Id
+	@GeneratedValue
 	private Integer 		id;
 	
+	@Column(length = 20, nullable = false)
 	@NotBlank(message 	= "Le prenom est obligatoire")
-	@NotNull(message 	= "Le prenom est obligatoire")
-	@NotEmpty(message 	= "Le prenom est obligatoire")
 	@Size(min=1,max=20)
 	private String 			firstName;
 	
+	@Column(length = 50, nullable = false)
 	@NotBlank(message 	= "Le nom est obligatoire")
-	@NotNull(message 	= "Le nom est obligatoire")
-	@NotEmpty(message 	= "Le nom est obligatoire")
-	@Size(min=1,max=20)
+	@Size(min=1,max=50)
 	private String 			lastName;
 	
+	@Column(nullable = false)
 	@NotNull(message = "La date est obligatoire")
 	private LocalDate	 	birthday;
 	
+	@Transient
 	private Metier			metier;
 	//private List<Film> 		playedFilms;
 	//private List<Film> 		directedFilms;

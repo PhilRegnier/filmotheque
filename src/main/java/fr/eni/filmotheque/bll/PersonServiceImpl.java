@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.eni.filmotheque.bo.Person;
-import fr.eni.filmotheque.dao.PersonsDao;
+import fr.eni.filmotheque.dao.PersonRepository;
 
 @Service
 public class PersonServiceImpl implements PersonService 
 {
-	private PersonsDao personsDao;
+	private PersonRepository personsDao;
 	
 	@Autowired
-	public PersonServiceImpl(PersonsDao personsDao) 
+	public PersonServiceImpl(PersonRepository personsDao) 
 	{
 		this.personsDao = personsDao;
 	}
@@ -22,18 +22,18 @@ public class PersonServiceImpl implements PersonService
 	@Override
 	public List<Person> getPersons() 
 	{
-		return this.personsDao.selectAllPersons();
+		return this.personsDao.findAll();
 	}
 
 	@Override
 	public Person getPersonById(Integer id) 
 	{
-		return this.personsDao.selectPersonById(id);
+		return this.personsDao.getById(id);
 	}
 
 	@Override
 	public void insertPerson(Person person) 
 	{
-		this.personsDao.insertPerson(person);
+		this.personsDao.save(person);
 	}
 }

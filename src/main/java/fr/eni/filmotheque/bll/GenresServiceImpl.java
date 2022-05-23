@@ -6,25 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.eni.filmotheque.bo.Genre;
-import fr.eni.filmotheque.dao.GenresDao;
+import fr.eni.filmotheque.dao.GenreRepository;
 
 @Service
 public class GenresServiceImpl implements GenresService {
 	
-	private GenresDao genresDao;
+	private GenreRepository genresDao;
 	
 	@Autowired
-	public GenresServiceImpl(GenresDao genresDao) {
+	public GenresServiceImpl(GenreRepository genresDao) {
 		this.genresDao = genresDao;
 	}
 	@Override
 	public List<Genre> getGenres() {
-		return genresDao.selectAll();
+		return genresDao.findAll();
 	}
 
 	@Override
 	public Genre getGenre(Integer id) {
-		return this.genresDao.selectById(id);
+		return this.genresDao.getById(id);
 	}
 
 }

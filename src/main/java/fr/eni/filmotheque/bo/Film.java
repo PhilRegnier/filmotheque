@@ -3,32 +3,55 @@ package fr.eni.filmotheque.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
+@Entity
+@Table(name = "Films")
 public class Film {
 	
+	@Id
+	@GeneratedValue
 	private Integer 	 id;
 	
+	@Column(length=  100, nullable = false)
 	@NotBlank
 	@Size(max = 100)
 	private String 		 title;
 	
-	@NotNull
-	private Integer 	 releaseYear;
-	
+	@Column(nullable = false)
 	@NotNull
 	@Min(1850)
+	private Integer 	 releaseYear;
+	
+	@Column(nullable = false)
+	@NotNull
+	@Min(1)
 	private Integer 	 duration;
 	
+	@Column(length=  250)
 	@Size(min = 20, max = 250)
 	private String 		 synopsis;
 	
+	@Transient
 	private Genre 		 genre;
+	
+	@Transient
 	private List<Person> actors;
+	
+	@Transient
 	private Person 		 director;
+	
+	@Transient
 	private List<Review> reviews;
 
 	public Film() {
