@@ -8,5 +8,5 @@ public interface FilmsDao {
 	
 	public List<Film> selectAllFilms();
 	public Film selectFilmById(Integer id);
-	public void insertFilm(Film film);
+	public void insert(Film film);
 }

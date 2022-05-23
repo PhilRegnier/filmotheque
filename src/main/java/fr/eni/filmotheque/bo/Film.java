@@ -3,12 +3,29 @@ package fr.eni.filmotheque.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Film {
+	
 	private Integer 	 id;
+	
+	@NotBlank
+	@Size(max = 100)
 	private String 		 title;
+	
+	@NotNull
 	private Integer 	 releaseYear;
+	
+	@NotNull
+	@Min(1850)
 	private Integer 	 duration;
+	
+	@Size(min = 20, max = 250)
 	private String 		 synopsis;
+	
 	private Genre 		 genre;
 	private List<Person> actors;
 	private Person 		 director;

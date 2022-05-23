@@ -58,7 +58,7 @@ public class FilmsDaoImpl implements FilmsDao
 	}
 
 	@Override
-	public void insertFilm(Film film) {
+	public void insert(Film film) {
 		this.allFilms.add(film);
 	}
 	
