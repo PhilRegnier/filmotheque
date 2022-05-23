@@ -1,39 +1,38 @@
 package fr.eni.filmotheque.bll;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import fr.eni.filmotheque.bo.Metier;
+import fr.eni.filmotheque.dao.MetiersDao;
 
 @Service
 public class MetierServiceImpl implements MetierService 
 {
-	private List<Metier> 		metiers;
-	private Map<Integer,Metier> mapMetiers;
+	private MetiersDao			metiersDao;
 	
-	public MetierServiceImpl() 
+	public MetierServiceImpl(MetiersDao	metiersDao) 
 	{
-		metiers = new ArrayList<Metier>();
-		metiers.add(new Metier(1,"Acteur"));
-		metiers.add(new Metier(2,"Réalisateur"));
-		
-		mapMetiers = new HashMap<Integer, Metier>();
-		metiers.forEach(m->mapMetiers.put(m.getId(), m));
+		this.metiersDao = metiersDao;	
 	}
 
 	@Override
 	public List<Metier> getListeMetier() 
 	{
-		return metiers;
+		return this.metiersDao.selectAllMetiers();
 	}
 
 	@Override
 	public Map<Integer, Metier> getMapMetier() 
 	{
-		return mapMetiers;
+		return this.metiersDao.getMapMetier();
+	}
+
+	@Override
+	public Metier selectMetierById(Integer id) 
+	{
+		return this.metiersDao.selectMetierById(id);
 	}
 }
