@@ -43,7 +43,7 @@
 			<select id="genre" data-th-field="*{genre}">
 				<option
 					data-th-each="genre : ${@genres}"
-					data-th-value="genre.id"
+					data-th-value="${genre.id}"
 					data-th-text="${genre.name}"></option>
 			</select>
 			<br/>
