@@ -2,12 +2,27 @@ package fr.eni.filmotheque.bo;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class Person 
 {
 	private Integer 		id;
+	
+	@NotBlank(message 	= "Le prenom est obligatoire")
+	@NotNull(message 	= "Le prenom est obligatoire")
+	@NotEmpty(message 	= "Le prenom est obligatoire")
 	private String 			firstName;
+	
+	@NotBlank(message 	= "Le nom est obligatoire")
+	@NotNull(message 	= "Le nom est obligatoire")
+	@NotEmpty(message 	= "Le nom est obligatoire")
 	private String 			lastName;
+	
+	@NotNull(message = "La date est obligatoire")
 	private LocalDate	 	birthday;
+	
 	private Metier			metier;
 	//private List<Film> 		playedFilms;
 	//private List<Film> 		directedFilms;

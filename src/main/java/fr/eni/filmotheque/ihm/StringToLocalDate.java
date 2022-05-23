@@ -12,5 +12,5 @@ public class StringToLocalDate implements Converter<String,LocalDate>
 	public LocalDate convert(String source) 
 	{
 		return LocalDate.parse(source);
-	}	
+	}
 }
