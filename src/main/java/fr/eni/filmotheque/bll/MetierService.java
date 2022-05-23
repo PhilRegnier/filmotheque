@@ -8,5 +8,6 @@ import fr.eni.filmotheque.bo.Metier;
 public interface MetierService 
 {
 	public List<Metier> 		getListeMetier();
+	public Metier 				selectMetierById(Integer id);
 	public Map<Integer,Metier> 	getMapMetier();
 }
