@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class Person 
 {
@@ -13,11 +14,13 @@ public class Person
 	@NotBlank(message 	= "Le prenom est obligatoire")
 	@NotNull(message 	= "Le prenom est obligatoire")
 	@NotEmpty(message 	= "Le prenom est obligatoire")
+	@Size(min=1,max=20)
 	private String 			firstName;
 	
 	@NotBlank(message 	= "Le nom est obligatoire")
 	@NotNull(message 	= "Le nom est obligatoire")
 	@NotEmpty(message 	= "Le nom est obligatoire")
+	@Size(min=1,max=20)
 	private String 			lastName;
 	
 	@NotNull(message = "La date est obligatoire")
