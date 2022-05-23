@@ -39,7 +39,7 @@
 		
 		<br><br><br><br><br>	
 		<ul th:each="personne: ${liste}">
-			<li th:text="${personne.firstName} + ' ' + ${personne.lastName} + ' ' + ${personne.metier.libelle}" ></li>
+			<li th:text="${personne.firstName} + ' ' + ${personne.lastName} + ' ' + ${personne.metier.libelle} + ' ' + ${personne.birthday}" ></li>
 		</ul>	
 		
 		<input type="submit">		
