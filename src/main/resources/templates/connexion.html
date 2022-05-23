@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page de connexion</title>
+</head>
+<body>
+	<h1>Connectez-vous</h1>
+	
+		<form th:action="@{/connecte}" th:object=${user} method="post">
+		
+		<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}" >
+		<p th:text="#{index.erreurs}">Message d'erreur</p></div>
+				
+		<label>Nom</label>
+		<input type="text" id="firstName" name="firstName" th:field="*{firstName}"/>
+		<span th:if="${#fields.hasErrors('firstName')}">
+			<ul><li th:each="erreur: ${#fields.errors('firstName')}" th:text="${erreur}"></li></ul>
+		</span>
+		
+		<label>Prenom</label>
+		<input type="text" id="lastName"  th:field="*{lastName}"/>
+		<span th:if="${#fields.hasErrors('lastName')}">
+			<ul><li th:each="erreur: ${#fields.errors('lastName')}" th:text="${erreur}"></li></ul>
+		</span>
+		
+		<label>Anniversaire</label>
+		<input type="date" id="birthday" th:field="*{birthday}" />
+		<span th:if="${#fields.hasErrors('birthday')}">
+			<ul><li th:each="erreur: ${#fields.errors('birthday')}" th:text="${erreur}"></li></ul>
+		</span>	
+		
+		<label>Type</label>
+		<select th:field="*{metier}" required>
+			<option th:each="metier: ${@metiers}" th:value="${metier.id}" th:text="${metier.libelle}"></option>
+		</select>	
+		
+		<br><br><br><br><br>	
+		<ul th:each="personne: ${liste}">
+			<li th:text="${personne.firstName} + ' ' + ${personne.lastName} + ' ' + ${personne.metier.libelle} + ' ' + ${personne.birthday}" ></li>
+		</ul>	
+		
+		<input type="submit">		
+	</form>
+	
+</body>
+</html>

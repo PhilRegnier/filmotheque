@@ -6,30 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.eni.filmotheque.bo.Film;
-import fr.eni.filmotheque.dao.FilmsDao;
+import fr.eni.filmotheque.dao.FilmRepository;
 
 @Service
 public class FilmsServiceImpl implements FilmsService
 {
-	private FilmsDao filmsDao;	
+	private FilmRepository filmsDao;
 	
 	@Autowired
-	public FilmsServiceImpl(FilmsDao filmsDao) {
+	public FilmsServiceImpl(FilmRepository filmsDao) {
 		this.filmsDao = filmsDao;
 	}
 
 	@Override
 	public List<Film> getFilms() {
-		return this.filmsDao.selectAllFilms();
+		return this.filmsDao.findAll();
 	}
 
 	@Override
 	public Film getFilmById(Integer id) {
-		return this.filmsDao.selectFilmById(id);
+		return this.filmsDao.getById(id);
 	}
 
 	@Override
 	public void insert(Film film) {
-		this.filmsDao.insert(film);		
+		this.filmsDao.save(film);		
 	}	
 }

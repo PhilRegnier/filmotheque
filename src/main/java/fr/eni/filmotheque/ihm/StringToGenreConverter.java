@@ -13,7 +13,7 @@ public class StringToGenreConverter implements Converter<String, Genre> {
 	private GenresServiceImpl service;
 	
 	@Autowired
-	public void setMetierService(GenresServiceImpl service) {
+	public void setGenreService(GenresServiceImpl service) {
 		this.service = service;
 	}
 

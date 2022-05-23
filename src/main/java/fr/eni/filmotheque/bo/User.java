@@ -2,15 +2,41 @@ package fr.eni.filmotheque.bo;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+
+@Entity
+@Table(name = "Users")
 public class User 
 {
+	@Id
+	@GeneratedValue
 	private Long 			id;
+	
+	@Column(length = 20, nullable = false)
 	private String			pseudo;
+	
+	@Column(length = 50, nullable = false)
 	private String			firstname;
+	
+	@Column(length = 50, nullable = false)
 	private String			lastname;
+	
+	@Column(length = 20, nullable = false)
 	private String			password;
+	
+	@Column(length = 80, nullable = false)
 	private String			email;
+	
+	@Column(columnDefinition = "boolean default false")
 	private Boolean			admin;
+	
+	@Transient
 	private List<Review>	reviews;
 	
 	public User() {
