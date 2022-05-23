@@ -4,14 +4,16 @@ import java.time.LocalDate;
 
 public class Person 
 {
-	private Integer id;
+	private Integer 		id;
 	private String 			firstName;
 	private String 			lastName;
 	private LocalDate	 	birthday;
+	private Metier			metier;
 	//private List<Film> 		playedFilms;
 	//private List<Film> 		directedFilms;
 	
-	public Person() {
+	public Person() 
+	{
 		//this.playedFilms = new ArrayList<>();
 		//this.directedFilms = new ArrayList<>();
 	}
@@ -53,6 +55,14 @@ public class Person
 
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
+	}
+
+	public Metier getMetier() {
+		return metier;
+	}
+
+	public void setMetier(Metier metier) {
+		this.metier = metier;
 	}
 		
 /*

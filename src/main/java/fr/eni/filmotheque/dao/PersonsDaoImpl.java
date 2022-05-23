@@ -14,39 +14,46 @@ public class PersonsDaoImpl implements PersonsDao
 {
 	private List<Person> persons;
 		
-	public PersonsDaoImpl() {
+	public PersonsDaoImpl(MetiersDao metierDao) {
 		
 		this.persons = new ArrayList<Person>(); 
 				
 		Person personTmp;
 		
 		personTmp = new Person("Sam","Neill",LocalDate.of(1947, 9, 14));
-		personTmp.setId(1);		
+		personTmp.setId(1);
+		personTmp.setMetier(metierDao.selectMetierById(0));
 		this.persons.add(personTmp);
 		
 		personTmp = new Person("Laura","Dern",LocalDate.of(1967, 2, 10));
-		personTmp.setId(2);		
+		personTmp.setId(2);
+		personTmp.setMetier(metierDao.selectMetierById(0));		
 		this.persons.add(personTmp);
 		
 		personTmp = new Person("Jeff","Goldblum",LocalDate.of(1952, 10, 22));
-		personTmp.setId(3);		
+		personTmp.setId(3);
+		personTmp.setMetier(metierDao.selectMetierById(0));		
 		this.persons.add(personTmp);
 		
 		personTmp = new Person("Steven","Spielberg",LocalDate.of(1946, 12, 18));
-		personTmp.setId(4);		
+		personTmp.setId(4);
+		personTmp.setMetier(metierDao.selectMetierById(2));		
 		this.persons.add(personTmp);
 		
 		personTmp = new Person("David","Cronenberg",LocalDate.of(1943, 3, 15));
-		personTmp.setId(5);		
+		personTmp.setId(5);
+		personTmp.setMetier(metierDao.selectMetierById(0));		
 		this.persons.add(personTmp);
 		
 	}
 	
-	public List<Person> getPersons() {
+	@Override
+	public List<Person> selectAllPersons() {
 		return this.persons;
 	}
 
-	public void setPerson(List<Person> persons) {
+	public void setPerson(List<Person> persons) 
+	{
 		this.persons = persons;
 	}
 

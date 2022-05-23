@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ENI movies</title>
+</head>
+<body>
+	<header data-th-fragment="_header"></header>
+	
+	<h1>Nouvelle personne</h1>
+		
+	<form th:action="@{/ajoutPerson}" th:object=${person} method="post">
+		
+		<label>Nom</label>
+		<input type="text" id="firstName" name="firstName" th:field="*{firstName}" required/>
+		
+		<label>Prenom</label>
+		<input type="text" id="lastName"  th:field="*{lastName}" required/>
+		
+		<label>Anniversaire</label>
+		<input type="date" id="nom" th:field="*{birthday}"  required/>
+		
+		<label>Type</label>
+		<select th:field="*{metier}" required>
+			<option th:each="metier: ${@metiers}" th:value="${metier.id}" th:text="${metier.libelle}"></option>
+		</select>	
+		
+		<br><br><br><br><br>	
+		<ul th:each="personne: ${liste}">
+			<li th:text="${personne.firstName} + ' ' + ${personne.lastName} + ' ' + ${personne.metier.libelle}" ></li>
+		</ul>	
+		
+		<input type="submit">
+	</form>
+</body>
+</html>

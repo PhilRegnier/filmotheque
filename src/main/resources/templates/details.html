@@ -28,14 +28,15 @@
 	<input type="text" id="duree"  name="duree" disabled data-th-attr="value=${movie.duration}"><br>
 	
 	<label>Acteur(s) : </label>
-
 	<ul th:each="actor: ${movie.actors}">
 		<li th:text="${actor.firstName}"/>
 	</ul>
 
-	<label>Commentaires(s) : </label>
+	<label>Commentaires(s) :  </label>
+	
 	<ul th:each="review: ${movie.reviews}">
-		<li th:text="${review.comment}"/>
+	<span th:text="${review.user.pseudo} + ' note : ' + ${review.rating} + '/5'"></span>		
+		<li th:text="${review.comment}"/>		
 	</ul>
 	
 </body>

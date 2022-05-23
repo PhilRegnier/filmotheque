@@ -4,18 +4,13 @@ import java.time.LocalDateTime;
 
 public class Review 
 {
-	private Long 			id;
+	private Integer			id;
 	private String			comment;
 	private Integer 		rating;
 	private	LocalDateTime	date;
 	private	User			user;
 	private	Film			film;
 	
-	public Review() 
-	{
-		
-	}
-
 	public Review(String comment, Integer rating, LocalDateTime date) 
 	{
 		this.comment = comment;
@@ -23,11 +18,11 @@ public class Review
 		this.date = date;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -69,5 +64,5 @@ public class Review
 
 	public void setUser(User user) {
 		this.user = user;
-	}	
+	}		
 }
