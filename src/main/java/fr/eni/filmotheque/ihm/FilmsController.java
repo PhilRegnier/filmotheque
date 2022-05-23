@@ -1,8 +1,11 @@
 package fr.eni.filmotheque.ihm;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +29,7 @@ public class FilmsController
 	@GetMapping({"/", "/movies", "/films"})
 	public String movies(Model model)
 	{
-		model.addAttribute("movies", filmsService.getFilms());
+		model.addAttribute("movies", this.filmsService.getFilms());
 		return "movies";
 	}
 	
@@ -38,15 +41,22 @@ public class FilmsController
 	}
 	
 	@PostMapping({"/addfilm", "/addmovie"})
-	public String add( @ModelAttribute("film") Film film) {
-		System.out.println(film.getTitle() + ' ' + film.getGenre());
+	public String add(
+			@Valid @ModelAttribute("film") Film film,
+			BindingResult validationResult
+			)
+	{
+		if (validationResult.hasErrors()) {
+			return "addmovie";
+		}
+		this.filmsService.insert(film);
 		return "redirect:movies";
 	}
 	
-	@GetMapping({"/movies"})
+	@GetMapping({"/movie"})
 	public String movies(@RequestParam Integer id, Model model)
 	{	
-		model.addAttribute("movie",filmsService.getFilmById(id));
+		model.addAttribute("movie",this.filmsService.getFilmById(id));
 		
 		return "details";
 	}

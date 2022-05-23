@@ -9,19 +9,54 @@
 	
 	<h1>Ajouter un film</h1>
 	<form action="#" data-th-action="@{/addfilm}" method="post" data-th-object="${film}">
+	
+		<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}" >
+			<p th:text="#{index.erreurs}">Message d'erreur</p>
+		</div>
+	
 		<fieldset>
 			<label for="TitreInput">Titre :</label>
 			<input type="text" id="titreInput" data-th-field="*{title}" />
+			<span class="text-danger col-6" th:if="${#fields.hasErrors('title')}">
+				<ul>
+					<li th:each="erreur: ${#fields.errors('title')}" th:text="${erreur}"></li>
+				</ul>
+			</span>
+			<br/>
 			<label for="anneeInput">Année :</label>
 			<input type="number" id="anneeInput" data-th-field="*{releaseYear}" />
+			<span class="text-danger col-6" th:if="${#fields.hasErrors('releaseYear')}">
+				<ul>
+					<li th:each="erreur: ${#fields.errors('releaseYear')}" th:text="${erreur}"></li>
+				</ul>
+			</span>
+			<br/>
+			<label for="durationInput">Durée :</label>
+			<input type="number" id="durationInput" data-th-field="*{duration}" />
+			<span class="text-danger col-6" th:if="${#fields.hasErrors('duration')}">
+				<ul>
+					<li th:each="erreur: ${#fields.errors('duration')}" th:text="${erreur}"></li>
+				</ul>
+			</span>
+			<br/>
+			<label for="genre">Genre :</label>
+			<select id="genre" data-th-field="*{genre}">
+				<option
+					data-th-each="genre : ${@genres}"
+					data-th-value="genre.id"
+					data-th-text="${genre.name}"></option>
+			</select>
+			<br/>
+			<label for="synopsisInput">Synopsis :</label>
+			<textarea id="synopsisInput" rows="8" cols="50" data-th-field="*{synopsis}"></textarea>
+			<span class="text-danger col-6" th:if="${#fields.hasErrors('synopsis')}">
+				<ul>
+					<li th:each="erreur: ${#fields.errors('synopsis')}" th:text="${erreur}"></li>
+				</ul>
+			</span>
 		</fieldset>
-		<label for="genre">Genre :</label>
-		<select id="genre" data-th-field="*{genre}">
-			<option
-				data-th-each="genre : ${@genres}"
-				data-th-value="genre.id"
-				data-th-text="${genre.name}"></option>
-		</select>
+		
+		
 		<button type="submit">Ajouter</button>
 	</form>
 </body>

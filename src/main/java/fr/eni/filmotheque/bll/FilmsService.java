@@ -8,5 +8,5 @@ public interface FilmsService
 {
 	public List<Film> getFilms();
 	public Film getFilmById(Integer id);
-	public void insertFilm(Film film);
+	public void insert(Film film);
 }

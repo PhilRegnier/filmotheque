@@ -29,7 +29,7 @@ public class FilmsServiceImpl implements FilmsService
 	}
 
 	@Override
-	public void insertFilm(Film film) {
-		this.filmsDao.insertFilm(film);		
+	public void insert(Film film) {
+		this.filmsDao.insert(film);		
 	}	
 }
