@@ -50,7 +50,7 @@ public class FilmsController
 			return "addmovie";
 		}
 		this.filmsService.insert(film);
-		return "redirect:movies";
+		return "redirect:/movies";
 	}
 	
 	@GetMapping({"/movie"})
