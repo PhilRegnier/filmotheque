@@ -16,10 +16,11 @@ public class User
 {
 	@Id
 	@GeneratedValue
-	private Integer			id;
-	
+
+	private Integer id;
+
 	@Column(length = 20, nullable = false)
-	private String			pseudo;
+	private String pseudo;
 	
 	@Column(length = 50, nullable = false)
 	private String			firstName;
@@ -28,16 +29,16 @@ public class User
 	private String			lastName;
 	
 	@Column(length = 20, nullable = false)
-	private String			password;
+	private String password;
 	
 	@Column(length = 80, nullable = false)
-	private String			email;
+	private String email;
 	
 	@Column(columnDefinition = "boolean default false")
-	private Boolean			admin;
+	private Boolean admin;
 	
 	@Transient
-	private List<Review>	reviews;
+	private List<Review> reviews;
 	
 	public User() {
 		super();
