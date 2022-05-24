@@ -1,15 +1,17 @@
 package fr.eni.filmotheque.bo;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -34,11 +36,13 @@ public class Person
 	@Column(nullable = false)
 	@NotNull(message = "La date est obligatoire")
 	private LocalDate	 	birthday;
+		
+	@ManyToMany(mappedBy="actors")
+	private List<Film> 		playedFilms;
 	
-	@Transient
-	private Metier			metier;
-	//private List<Film> 		playedFilms;
-	//private List<Film> 		directedFilms;
+	@OneToMany(cascade = {CascadeType.PERSIST},
+			mappedBy="director")
+	private List<Film> 		directedFilms;
 	
 	public Person() 
 	{
@@ -84,16 +88,7 @@ public class Person
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
-
-	public Metier getMetier() {
-		return metier;
-	}
-
-	public void setMetier(Metier metier) {
-		this.metier = metier;
-	}
-		
-/*
+	
 	public List<Film> getPlayedFilms() {
 		return playedFilms;
 	}
@@ -118,5 +113,5 @@ public class Person
 	public void addDirectedFilm(Film film)
 	{
 		this.directedFilms.add(film);
-	}*/
+	}
 }

@@ -17,15 +17,15 @@ public class UserDaoImpl implements UserDao
 		User userTmp;
 		
 		userTmp = new User("Toto41", "Hercule", "Poirot", "123456", "Toto@eni.fr", true);
-		userTmp.setId(1l);
+		userTmp.setId(1);
 		users.add(userTmp);
 		
 		userTmp = new User("Bob987", "Boby", "Rasofsky", "123456", "Boby@eni.fr", false);
-		userTmp.setId(1l);
+		userTmp.setId(1);
 		users.add(userTmp);
 		
 		userTmp = new User("TheBoss", "Michel", "Trouduc", "123456", "Mimi@eni.fr", false);
-		userTmp.setId(1l);
+		userTmp.setId(1);
 		users.add(userTmp);
 	}
 
@@ -36,9 +36,9 @@ public class UserDaoImpl implements UserDao
 	}
 
 	@Override
-	public User selectUserById(long id) 
+	public User selectUserById(Integer id) 
 	{	
-		return this.users.get((int)id);
+		return this.users.get(id);
 	}
 
 	@Override

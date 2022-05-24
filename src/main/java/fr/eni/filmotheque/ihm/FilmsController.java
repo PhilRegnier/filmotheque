@@ -19,11 +19,13 @@ import fr.eni.filmotheque.bo.Film;
 public class FilmsController 
 {
 	private FilmsService  filmsService;
+	private PersonService personService;
 	
 	@Autowired
 	public FilmsController(FilmsService filmsService,PersonService personService)
 	{	
 		this.filmsService  = filmsService;
+		this.personService = personService;
 	}
 	
 	@GetMapping({"/", "/movies", "/films"})
@@ -37,6 +39,8 @@ public class FilmsController
 	public String add(Model model)
 	{
 		model.addAttribute("film", new Film());
+		model.addAttribute("persons", personService.getPersons());	
+		
 		return "addmovie";
 	}
 	
