@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.RequestScope;
 
 import fr.eni.filmotheque.bll.GenresService;
 import fr.eni.filmotheque.bll.MetierService;
@@ -36,14 +37,9 @@ public class FilmothequeConfig {
 		return service.getGenres();
 	}
 	
-	@Bean
-	public List<Metier> metiers(MetierService service) {
-		return service.getListeMetier();				
-	}
-	
-	@Bean
-	public List<Person> persons(PersonService service) {
-		return service.getPersons();				
-	}
-	
+//	@Bean
+//	@RequestScope
+//	public List<Person> persons(PersonService service) {
+//		return service.getPersons();				
+//	}	
 }

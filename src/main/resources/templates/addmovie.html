@@ -46,6 +46,15 @@
 					data-th-value="${genre.id}"
 					data-th-text="${genre.name}"></option>
 			</select>
+			<label for="personInput">Réalisateur :</label>
+			
+			<select id="personInput" data-th-field="*{director}">
+				<option
+					data-th-each="person : ${persons}"
+					data-th-value="${person.id}"
+					data-th-text="${person.firstName} + ' ' + ${person.lastName}"></option>
+			</select>
+			
 			<br/>
 			<label for="synopsisInput">Synopsis :</label>
 			<textarea id="synopsisInput" rows="8" cols="50" data-th-field="*{synopsis}"></textarea>
