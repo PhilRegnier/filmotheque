@@ -19,7 +19,6 @@ import fr.eni.filmotheque.dao.GenreRepository;
 @Configuration
 public class FilmothequeConfig {
 
-	
 	@Bean
 	public CommandLineRunner genresStarter(GenreRepository repository) {
 		return (args) -> {
@@ -36,10 +35,5 @@ public class FilmothequeConfig {
 	public List<Genre> genres(GenresService service) {
 		return service.getGenres();
 	}
-	
-//	@Bean
-//	@RequestScope
-//	public List<Person> persons(PersonService service) {
-//		return service.getPersons();				
-//	}	
+
 }
