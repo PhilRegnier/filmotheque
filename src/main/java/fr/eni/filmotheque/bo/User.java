@@ -16,16 +16,16 @@ public class User
 {
 	@Id
 	@GeneratedValue
-	private Long 			id;
+	private Integer			id;
 	
 	@Column(length = 20, nullable = false)
 	private String			pseudo;
 	
 	@Column(length = 50, nullable = false)
-	private String			firstname;
+	private String			firstName;
 	
 	@Column(length = 50, nullable = false)
-	private String			lastname;
+	private String			lastName;
 	
 	@Column(length = 20, nullable = false)
 	private String			password;
@@ -46,18 +46,18 @@ public class User
 	public User(String pseudo, String firstname, String lastname, String password, String email, Boolean admin) {
 		super();
 		this.pseudo = pseudo;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.firstName = firstname;
+		this.lastName = lastname;
 		this.password = password;
 		this.email = email;
 		this.admin = admin;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -69,20 +69,20 @@ public class User
 		this.pseudo = pseudo;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstname) {
+		this.firstName = firstname;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastname) {
+		this.lastName = lastname;
 	}
 
 	public String getPassword() {
