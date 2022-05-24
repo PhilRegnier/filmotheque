@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.eni.filmotheque.bll.FilmsService;
-import fr.eni.filmotheque.bll.PersonService;
 import fr.eni.filmotheque.bo.Film;
 
 @Controller
@@ -21,7 +20,7 @@ public class FilmsController
 	private FilmsService  filmsService;
 	
 	@Autowired
-	public FilmsController(FilmsService filmsService,PersonService personService)
+	public FilmsController(FilmsService filmsService)
 	{	
 		this.filmsService  = filmsService;
 	}
