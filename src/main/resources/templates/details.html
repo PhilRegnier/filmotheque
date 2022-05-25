@@ -35,7 +35,8 @@
 	<label>Commentaires(s) :  </label>
 	
 	<ul th:each="review: ${movie.reviews}">
-	<span th:text="${review.user.pseudo} + ' note : ' + ${review.rating} + '/5'"></span>		
+	<!-- <span th:text="${review.user.pseudo} + ' note : ' + ${review.rating} + '/5'"></span>-->		
+	<span th:text="' note : ' + ${review.rating} + '/5'"></span>
 		<li th:text="${review.comment}"/>		
 	</ul>
 	

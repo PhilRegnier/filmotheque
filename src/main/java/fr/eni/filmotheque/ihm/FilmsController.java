@@ -50,10 +50,13 @@ public class FilmsController
 			BindingResult validationResult
 			)
 	{
-		if (validationResult.hasErrors()) {
+		if (validationResult.hasErrors()) 
+		{
 			return "addmovie";
 		}
+		
 		this.filmsService.insert(film);
+		
 		return "redirect:/movies";
 	}
 	
