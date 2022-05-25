@@ -12,13 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 
 @Entity
 @Table(name = "Films")
@@ -50,18 +49,17 @@ public class Film {
 	@ManyToOne
 	private Genre 		 genre;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable( name = "filmActor",
 				joinColumns = {@JoinColumn(name="filmId")},
 				inverseJoinColumns = {@JoinColumn(name="personId")})	
-	private List<Person> actors;
-	
-	
+	private List<Person> actors = new ArrayList<Person>();
+		
 	@ManyToOne
 	private Person 		 director;
 	
-	@Transient
-	private List<Review> reviews;
+	@OneToMany(cascade = {CascadeType.PERSIST},fetch = FetchType.LAZY,orphanRemoval = true)
+	private List<Review> reviews = new ArrayList<Review>();
 
 	public Film() {
 	}
@@ -72,9 +70,6 @@ public class Film {
 		this.releaseYear = releaseYear;
 		this.duration 	 = duration;
 		this.synopsis 	 = synopsis;
-
-		this.actors 	 = new ArrayList<Person>();
-		this.reviews 	 = new ArrayList<Review>();
 	}
 
 	public Integer getId() {
@@ -129,11 +124,12 @@ public class Film {
 		return actors;
 	}
 
-	public void setActor(List<Person> actors) {
+	public void setActors(List<Person> actors) {
 		this.actors = actors;
 	}
 
 	public void addActor(Person actor) {
+		
 		this.actors.add(actor);
 	}
 

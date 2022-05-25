@@ -44,7 +44,11 @@ public class Person
 			mappedBy="director")
 	private List<Film> directedFilms;
 	
+<<<<<<< HEAD
 	public Person() {}
+=======
+	public Person()	{ }
+>>>>>>> branch 'master' of https://github.com/PhilRegnier/filmotheque.git
 
 	public Person(String firstName, String lastName, LocalDate birthday) {
 		this();
