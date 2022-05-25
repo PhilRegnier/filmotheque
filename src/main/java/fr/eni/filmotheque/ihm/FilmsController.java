@@ -39,7 +39,10 @@ public class FilmsController
 	public String add(Model model)
 	{
 		model.addAttribute("film", new Film());
-		model.addAttribute("persons", personService.getPersons());	
+		model.addAttribute("persons", personService.getPersons());
+		
+		model.addAttribute("actors", 	 personService.getActeurs());
+		model.addAttribute("productors", personService.getProducteurs());
 		
 		return "addmovie";
 	}

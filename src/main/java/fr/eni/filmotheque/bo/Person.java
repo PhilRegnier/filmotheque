@@ -44,13 +44,19 @@ public class Person
 			mappedBy="director")
 	private List<Film> 		directedFilms;
 	
+	private Boolean acteur;
+	
+	private Boolean producteur;
+
 	public Person()	{ }
 
-	public Person(String firstName, String lastName, LocalDate birthday) {
+	public Person(String firstName, String lastName, LocalDate birthday,Boolean acteur,Boolean producteur) {
 		this();
 		this.firstName = firstName;
 		this.lastName  = lastName;
 		this.birthday  = birthday;
+		this.acteur    = acteur;
+		this.producteur   = producteur;
 	}
 
 	public Integer getId() {
@@ -109,5 +115,21 @@ public class Person
 	public void addDirectedFilm(Film film)
 	{
 		this.directedFilms.add(film);
+	}
+
+	public Boolean getActeur() {
+		return acteur;
+	}
+
+	public void setActeur(Boolean acteur) {
+		this.acteur = acteur;
+	}
+
+	public Boolean getProducteur() {
+		return producteur;
+	}
+
+	public void setProducteur(Boolean producteur) {
+		this.producteur = producteur;
 	}
 }

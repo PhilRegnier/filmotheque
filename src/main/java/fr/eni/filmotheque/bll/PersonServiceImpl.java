@@ -36,4 +36,14 @@ public class PersonServiceImpl implements PersonService
 	{
 		this.personsDao.save(person);
 	}
+
+	@Override
+	public List<Person> getActeurs() {
+		return this.personsDao.findByActeur(true);
+	}
+
+	@Override
+	public List<Person> getProducteurs() {
+		return this.personsDao.findByProducteur(true);
+	}
 }

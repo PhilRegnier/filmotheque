@@ -30,11 +30,23 @@
 		<input type="date" id="birthday" th:field="*{birthday}" />
 		<span th:if="${#fields.hasErrors('birthday')}">
 			<ul><li th:each="erreur: ${#fields.errors('birthday')}" th:text="${erreur}"></li></ul>
-		</span>		
+		</span>	
+		
+		<label>Acteur</label>
+		<input type="checkbox" id="acteur" th:field="*{acteur}" >
+		<span th:if="${#fields.hasErrors('acteur')}">
+			<ul><li th:each="erreur: ${#fields.errors('acteur')}" th:text="${erreur}"></li></ul>
+		</span>	
+		
+		<label>Réalisateur</label>
+		<input type="checkbox" id="producteur" th:field="{productors}" >
+		<span th:if="${#fields.hasErrors('producteur')}">
+			<ul><li th:each="erreur: ${#fields.errors('producteur')}" th:text="${erreur}"></li></ul>
+		</span>			
 		
 		<br><br><br><br><br>	
 		<ul th:each="personne: ${liste}">
-			<li th:text="${personne.firstName} + ' ' + ${personne.lastName} + ' ' + ${personne.birthday}" ></li>
+			<li th:text="${personne.firstName} + ' ' + ${personne.lastName} + ' ' + ${personne.birthday} + ' ' + ${personne.acteur} + ' ' + ${personne.producteur}" ></li>
 		</ul>	
 		
 		<input type="submit">		

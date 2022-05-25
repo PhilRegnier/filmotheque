@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import fr.eni.filmotheque.bo.User;
 import fr.eni.filmotheque.dao.UserDao;
-import fr.eni.filmotheque.dao.UserRepository;
 
 @Service
 public class UsersServiceImpl implements UsersService

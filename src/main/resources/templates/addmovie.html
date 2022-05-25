@@ -50,7 +50,7 @@
 			<label for="personInput">Réalisateur :</label>			
 			<select id="personInput" data-th-field="*{director}">
 				<option
-					data-th-each="person : ${persons}"
+					data-th-each="person : ${productors}"
 					data-th-value="${person.id}"
 					data-th-text="${person.firstName} + ' ' + ${person.lastName}">
 				</option>
@@ -59,7 +59,7 @@
 			<label for="actorInput">Acteurs :</label>
 			<select id="actorInput" data-th-field="*{actors}" multiple>
 				<option
-					data-th-each="person : ${persons}"
+					data-th-each="person : ${actors}"
 					data-th-value="${person.id}"
 					data-th-text="${person.firstName} + ' ' + ${person.lastName}">
 				</option>

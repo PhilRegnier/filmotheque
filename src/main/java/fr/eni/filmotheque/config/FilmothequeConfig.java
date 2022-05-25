@@ -26,11 +26,11 @@ public class FilmothequeConfig
 			repository.save(new Genre(4, "Horreur"));
 			repository.save(new Genre(5, "Comédie musicale"));
 			
-			perRepo.save(new Person("Alain","Delon",LocalDate.now()));
-			perRepo.save(new Person("jean-Paul","Belmondo",LocalDate.now()));
-			perRepo.save(new Person("Jean","Dujardin",LocalDate.now()));
-			perRepo.save(new Person("Gérard","Depardieu",LocalDate.now()));
-			perRepo.save(new Person("Vincent","Cassel",LocalDate.now()));			
+			perRepo.save(new Person("Alain","Delon",LocalDate.now(),true,true));
+			perRepo.save(new Person("jean-Paul","Belmondo",LocalDate.now(),true,false));
+			perRepo.save(new Person("Jean","Dujardin",LocalDate.now(),true,true));
+			perRepo.save(new Person("Gérard","Depardieu",LocalDate.now(),true,false));
+			perRepo.save(new Person("Vincent","Cassel",LocalDate.now(),true,true));			
 		};
 	}
 	
