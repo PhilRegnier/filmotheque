@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.eni.filmotheque.bll.FilmsService;
 import fr.eni.filmotheque.bll.PersonService;
 import fr.eni.filmotheque.bll.ReviewService;
-import fr.eni.filmotheque.bo.Film;
-import fr.eni.filmotheque.bo.Person;
 import fr.eni.filmotheque.bo.Review;
 
 @Controller
@@ -26,7 +24,7 @@ public class ReviewsController
 	private ReviewService reviewService;
 	
 	@Autowired
-	public ReviewsController(PersonService personService,ReviewService reviewService,FilmsService filmsService) 
+	public ReviewsController(PersonService personService, ReviewService reviewService, FilmsService filmsService) 
 	{
 		this.personService = personService;
 		this.reviewService = reviewService;

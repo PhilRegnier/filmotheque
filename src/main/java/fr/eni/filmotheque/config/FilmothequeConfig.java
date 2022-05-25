@@ -11,29 +11,22 @@ import org.springframework.web.context.annotation.ApplicationScope;
 
 import fr.eni.filmotheque.bll.GenresService;
 import fr.eni.filmotheque.bo.Genre;
-<<<<<<< HEAD
 import fr.eni.filmotheque.bo.User;
-=======
 import fr.eni.filmotheque.bo.Person;
->>>>>>> branch 'master' of https://github.com/PhilRegnier/filmotheque.git
 import fr.eni.filmotheque.dao.GenreRepository;
-<<<<<<< HEAD
 import fr.eni.filmotheque.dao.UserRepository;
-=======
 import fr.eni.filmotheque.dao.PersonRepository;
->>>>>>> branch 'master' of https://github.com/PhilRegnier/filmotheque.git
 
 @Configuration
 public class FilmothequeConfig 
 {	
 	@Bean
-<<<<<<< HEAD
-	public CommandLineRunner genresStarter(GenreRepository genreRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
-=======
-	public CommandLineRunner genresStarter(GenreRepository repository,PersonRepository perRepo) {
->>>>>>> branch 'master' of https://github.com/PhilRegnier/filmotheque.git
+	public CommandLineRunner genresStarter(
+			GenreRepository genreRepository,
+			PersonRepository personRepository,
+			UserRepository userRepository,
+			PasswordEncoder passwordEncoder) {
 		return (args) -> {
-<<<<<<< HEAD
 			genreRepository.save(new Genre(1, "Drame"));
 			genreRepository.save(new Genre(2, "Comédie"));
 			genreRepository.save(new Genre(3, "Fantastique"));
@@ -55,19 +48,12 @@ public class FilmothequeConfig
 			admin.setAdmin(true);
 			
 			userRepository.save(admin);
-=======
-			repository.save(new Genre(1, "Drame"));
-			repository.save(new Genre(2, "Comédie"));
-			repository.save(new Genre(3, "Fantastique"));
-			repository.save(new Genre(4, "Horreur"));
-			repository.save(new Genre(5, "Comédie musicale"));
 			
-			perRepo.save(new Person("Alain","Delon",LocalDate.now()));
-			perRepo.save(new Person("jean-Paul","Belmondo",LocalDate.now()));
-			perRepo.save(new Person("Jean","Dujardin",LocalDate.now()));
-			perRepo.save(new Person("Gérard","Depardieu",LocalDate.now()));
-			perRepo.save(new Person("Vincent","Cassel",LocalDate.now()));			
->>>>>>> branch 'master' of https://github.com/PhilRegnier/filmotheque.git
+			personRepository.save(new Person("Alain","Delon",LocalDate.now()));
+			personRepository.save(new Person("jean-Paul","Belmondo",LocalDate.now()));
+			personRepository.save(new Person("Jean","Dujardin",LocalDate.now()));
+			personRepository.save(new Person("Gérard","Depardieu",LocalDate.now()));
+			personRepository.save(new Person("Vincent","Cassel",LocalDate.now()));
 		};
 	}
 	
