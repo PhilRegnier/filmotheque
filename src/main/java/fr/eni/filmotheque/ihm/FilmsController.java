@@ -28,7 +28,7 @@ public class FilmsController
 		this.personService = personService;
 	}
 	
-	@GetMapping({"/", "/movies", "/films"})
+	@GetMapping({"/", "/home", "/movies", "/films"})
 	public String movies(Model model)
 	{
 		model.addAttribute("movies", this.filmsService.getFilms());

@@ -21,34 +21,30 @@ public class Person
 {
 	@Id
 	@GeneratedValue
-	private Integer 		id;
+	private Integer id;
 	
 	@Column(length = 20, nullable = false)
-	@NotBlank(message 	= "Le prenom est obligatoire")
+	@NotBlank(message = "Le prenom est obligatoire")
 	@Size(min=1,max=20)
-	private String 			firstName;
+	private String firstName;
 	
 	@Column(length = 50, nullable = false)
 	@NotBlank(message 	= "Le nom est obligatoire")
 	@Size(min=1,max=50)
-	private String 			lastName;
+	private String lastName;
 	
 	@Column(nullable = false)
 	@NotNull(message = "La date est obligatoire")
-	private LocalDate	 	birthday;
+	private LocalDate birthday;
 		
 	@ManyToMany(mappedBy="actors")
-	private List<Film> 		playedFilms;
+	private List<Film> playedFilms;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST},
 			mappedBy="director")
-	private List<Film> 		directedFilms;
+	private List<Film> directedFilms;
 	
-	public Person() 
-	{
-		//this.playedFilms = new ArrayList<>();
-		//this.directedFilms = new ArrayList<>();
-	}
+	public Person() {}
 
 	public Person(String firstName, String lastName, LocalDate birthday) {
 		this();

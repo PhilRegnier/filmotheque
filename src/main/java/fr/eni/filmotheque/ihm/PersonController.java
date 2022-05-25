@@ -9,11 +9,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.eni.filmotheque.bll.PersonService;
 import fr.eni.filmotheque.bo.Person;
 
 @Controller
+@RequestMapping("/person")
 public class PersonController 
 {
 	private PersonService personService;
@@ -24,7 +26,7 @@ public class PersonController
 		this.personService = personService;
 	}
 
-	@GetMapping({"/addPerson"})
+	@GetMapping({"/add"})
 	public String addPerson(Model model)
 	{				
 		model.addAttribute("person",new Person());
@@ -33,7 +35,7 @@ public class PersonController
 		return "ajout_person";
 	}
 	
-	@PostMapping({"/ajoutPerson"})
+	@PostMapping({"/add"})
 	public String traitForm(@Valid @ModelAttribute("person") Person personne,
 							BindingResult validationResult)	
 	{
@@ -44,6 +46,6 @@ public class PersonController
 		
 		personService.insertPerson(personne);
 		
-		return "redirect:/addPerson";
+		return "redirect:/add";
 	}
 }

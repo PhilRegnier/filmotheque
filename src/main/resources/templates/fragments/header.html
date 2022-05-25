@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8">
 <title>the header</title>
@@ -10,7 +10,12 @@
 		<a href="#" data-th-href="@{/}">Films</a>
 		<a href="#" data-th-href="@{/addfilm}">Nouveau film</a>
 		<a href="#" data-th-href="@{/addPerson}">Ajout personne</a>
-		<a href="#" data-th-href="@{/connecter}">Connexion</a>
+		<div sec:authorize="!isAuthenticated()">
+			<a href="#" data-th-href="@{/login}">Connexion</a>
+		</div>
+		<div sec:authorize="isAuthenticated()">
+			<a href="#" data-th-href="@{/login?logout}">Déconnexion</a>
+		</div>
 	</div>
 </body>
 </html>

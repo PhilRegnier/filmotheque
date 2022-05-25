@@ -5,25 +5,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import fr.eni.filmotheque.bll.UsersService;
-import fr.eni.filmotheque.bo.User;
+import fr.eni.filmotheque.bll.UserService;
 
 @Controller
 public class UsersController 
 {
-	private UsersService usersService;
+	private UserService userService;
 
 	@Autowired
-	public UsersController(UsersService usersService) 
+	public UsersController(UserService userService) 
 	{
-		this.usersService = usersService;
+		this.userService = userService;
 	}
 	
 	@GetMapping("/connecter")
 	public String connecter(Model model)
-	{
-		model.addAttribute("user",new User());
-		
+	{		
 		return "connexion";
 	}
 }

@@ -1,5 +1,7 @@
 package fr.eni.filmotheque.bo;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,26 +11,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 
 @Entity
 @Table(name = "Users")
-public class User 
+public class User implements UserDetails 
 {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
-
 	private Integer id;
 
 	@Column(length = 20, nullable = false)
 	private String pseudo;
 	
 	@Column(length = 50, nullable = false)
-	private String			firstName;
+	private String firstName;
 	
 	@Column(length = 50, nullable = false)
-	private String			lastName;
+	private String lastName;
 	
-	@Column(length = 20, nullable = false)
+	@Column(length = 80, nullable = false)
 	private String password;
 	
 	@Column(length = 80, nullable = false)
@@ -40,10 +47,12 @@ public class User
 	@Transient
 	private List<Review> reviews;
 	
+	
+	
 	public User() {
 		super();
 	}
-
+	
 	public User(String pseudo, String firstname, String lastname, String password, String email, Boolean admin) {
 		super();
 		this.pseudo = pseudo;
@@ -120,5 +129,40 @@ public class User
 
 	public void addReview(Review review) {
 		this.reviews.add(review);
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> auth = new ArrayList<>();
+		auth.add(new SimpleGrantedAuthority("ROLE_USER"));
+		if (this.admin) {
+			auth.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+		}
+		return auth;
+	}
+	
+	@Override
+	public String getUsername() {
+		return this.pseudo;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}	
 }

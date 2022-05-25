@@ -6,5 +6,5 @@ import fr.eni.filmotheque.bo.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
-	//public User getByPseudoOrEmail(String pseudo,String email);
+	public User getByPseudo(String pseudo);
 }
