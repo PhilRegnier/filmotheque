@@ -3,6 +3,7 @@ package fr.eni.filmotheque.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,40 +26,44 @@ public class Film {
 	
 	@Id
 	@GeneratedValue
-	private Integer 	 id;
+	private Integer id;
 	
-	@Column(length=  100, nullable = false)
+	@Column(length = 100, nullable = false)
 	@NotBlank
 	@Size(max = 100)
-	private String 		 title;
+	private String title;
 	
 	@Column(nullable = false)
 	@NotNull
 	@Min(1850)
-	private Integer 	 releaseYear;
+	private Integer releaseYear;
 	
 	@Column(nullable = false)
 	@NotNull
 	@Min(1)
-	private Integer 	 duration;
+	private Integer duration;
 	
-	@Column(length=  250)
+	@Column(length = 250)
 	@Size(min = 20, max = 250)
-	private String 		 synopsis;
+	private String synopsis;
 	
 	@ManyToOne
-	private Genre 		 genre;
+	private Genre genre;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable( name = "filmActor",
-				joinColumns = {@JoinColumn(name="filmId")},
-				inverseJoinColumns = {@JoinColumn(name="personId")})	
+	@JoinTable(
+			name = "filmActor",
+			joinColumns = {@JoinColumn(name="filmId")},
+			inverseJoinColumns = {@JoinColumn(name="personId")})	
 	private List<Person> actors = new ArrayList<Person>();
 		
 	@ManyToOne
-	private Person 		 director;
+	private Person director;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST},fetch = FetchType.LAZY,orphanRemoval = true)
+	@OneToMany(
+			cascade = {CascadeType.PERSIST},
+			fetch = FetchType.LAZY,
+			orphanRemoval = true)
 	private List<Review> reviews = new ArrayList<Review>();
 
 	public Film() {
