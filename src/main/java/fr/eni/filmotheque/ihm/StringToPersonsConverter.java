@@ -1,5 +1,8 @@
 package fr.eni.filmotheque.ihm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -8,8 +11,8 @@ import fr.eni.filmotheque.bll.PersonService;
 import fr.eni.filmotheque.bo.Person;
 
 @Component
-public class StringToPersonConverter implements Converter<String, Person> {
-
+public class StringToPersonsConverter implements Converter<String, List<Person>> 
+{
 	private PersonService service;
 	
 	@Autowired
@@ -18,7 +21,17 @@ public class StringToPersonConverter implements Converter<String, Person> {
 	}
 
 	@Override
-	public Person convert(String id) {		
-		return this.service.getPersonById(Integer.parseInt(id));
+	public List<Person> convert(String id) 
+	{		
+		List<Person> ret = new ArrayList<Person>();
+		
+		String[] lstId = id.split(",");
+		
+		for(int iloop=0;iloop<lstId.length;iloop++)
+		{				
+			ret.add(this.service.getPersonById(Integer.parseInt(lstId[iloop])));
+		}
+		
+		return ret;
 	}
 }
