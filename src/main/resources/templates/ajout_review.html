@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+<meta charset="UTF-8">
+<title>Ajouter un Commentaire</title>
+</head>
+<body>
+	<header data-th-insert="fragments/header :: header"></header>
+	
+	<h1>Ajouter un Commentaire</h1>
+	<form action="#" data-th-action="@{/addreview}" method="post" data-th-object="${review}">
+	
+		<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}" >
+			<p th:text="#{index.erreurs}">Message d'erreur</p>
+		</div>
+	
+		<fieldset>				
+			<label for="auteurInput">Auteur :</label>			
+			<select id="auteurInput" name="auteur">
+
+			</select>
+					
+			<br/>
+			<label for="noteInput">Note :</label>
+			<input type="number" id="noteInput" data-th-field="*{rating}"/>
+			<span class="text-danger col-6" th:if="${#fields.hasErrors('rating')}">
+				<ul>
+					<li th:each="erreur: ${#fields.errors('rating')}" th:text="${erreur}"></li>
+				</ul>
+			</span>
+			<br/>
+			
+			<br/>
+			<label for="commentaireInput">Commentaire :</label>
+			<textarea id="commentaireInput" rows="8" cols="50" data-th-field="*{comment}"></textarea>
+			<span class="text-danger col-6" th:if="${#fields.hasErrors('comment')}">
+				<ul>
+					<li th:each="erreur: ${#fields.errors('comment')}" th:text="${erreur}"></li>
+				</ul>
+			</span>
+		</fieldset>		
+		
+		<button type="submit">Ajouter</button>
+	</form>
+</body>
+</html>

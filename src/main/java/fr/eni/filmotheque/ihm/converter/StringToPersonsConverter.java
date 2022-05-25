@@ -1,4 +1,4 @@
-package fr.eni.filmotheque.ihm;
+package fr.eni.filmotheque.ihm.converter;
 
 import java.util.ArrayList;
 import java.util.List;

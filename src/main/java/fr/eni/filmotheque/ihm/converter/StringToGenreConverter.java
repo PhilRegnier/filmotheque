@@ -1,4 +1,4 @@
-package fr.eni.filmotheque.ihm;
+package fr.eni.filmotheque.ihm.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;

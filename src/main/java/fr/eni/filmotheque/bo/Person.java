@@ -44,11 +44,7 @@ public class Person
 			mappedBy="director")
 	private List<Film> 		directedFilms;
 	
-	public Person() 
-	{
-		//this.playedFilms = new ArrayList<>();
-		//this.directedFilms = new ArrayList<>();
-	}
+	public Person()	{ }
 
 	public Person(String firstName, String lastName, LocalDate birthday) {
 		this();
