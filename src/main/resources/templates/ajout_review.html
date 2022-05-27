@@ -16,7 +16,7 @@
 			<p th:text="#{index.erreurs}">Message d'erreur</p>
 		</div>
 
-		<h2 data-th-text="${review.film.title}"></h2>
+		<h2 data-th-text="*{film.title}"></h2>
 
 		<fieldset>
 			<label for="noteInput">Note :</label>
@@ -34,7 +34,9 @@
 					<li th:each="erreur: ${#fields.errors('comment')}" th:text="${erreur}"></li>
 				</ul>
 			</span>
-		</fieldset>		
+		</fieldset>
+		
+		<input type="hidden" data-th-value="*{film.id}" data-th-attr="name='filmId'"/>
 		
 		<button type="submit">Ajouter</button>
 	</form>
