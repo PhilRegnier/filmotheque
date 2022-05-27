@@ -55,22 +55,25 @@ public class Film {
 			name = "filmActor",
 			joinColumns = {@JoinColumn(name="filmId")},
 			inverseJoinColumns = {@JoinColumn(name="personId")})	
-	private List<Person> actors = new ArrayList<Person>();
+	private List<Person> actors;
 		
 	@ManyToOne
 	private Person director;
-	
+
 	@OneToMany(
 			cascade = {CascadeType.PERSIST},
 			fetch = FetchType.LAZY,
-			orphanRemoval = true)
-	private List<Review> reviews = new ArrayList<Review>();
+			orphanRemoval = true,
+			mappedBy = "film")
+	private List<Review> reviews;
 
 	public Film() {
+		this.actors = new ArrayList<Person>();
+		this.reviews = new ArrayList<Review>();
 	}
 
 	public Film(String title, Integer releaseYear, Integer duration, String synopsis) {
-
+		this();
 		this.title 		 = title;
 		this.releaseYear = releaseYear;
 		this.duration 	 = duration;
@@ -126,7 +129,11 @@ public class Film {
 	}
 
 	public List<Person> getActors() {
-		return actors;
+		return this.actors;
+	}
+
+	public void setActor(Person actor) {
+		this.actors.add(actor);
 	}
 
 	public void setActors(List<Person> actors) {
@@ -139,7 +146,7 @@ public class Film {
 	}
 
 	public Person getDirector() {
-		return director;
+		return this.director;
 	}
 
 	public void setDirector(Person director) {
@@ -147,7 +154,7 @@ public class Film {
 	}
 
 	public List<Review> getReviews() {
-		return reviews;
+		return this.reviews;
 	}
 
 	public void setReviews(List<Review> reviews) {

@@ -2,6 +2,7 @@ package fr.eni.filmotheque.ihm;
 
 import javax.validation.Valid;
 
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,8 +40,7 @@ public class FilmsController
 	public String add(Model model)
 	{
 		model.addAttribute("film", new Film());
-		model.addAttribute("persons", personService.getPersons());	
-		
+		model.addAttribute("persons", personService.getPersons());
 		return "addmovie";
 	}
 	
@@ -56,15 +56,13 @@ public class FilmsController
 		}
 		
 		this.filmsService.insert(film);
-		
 		return "redirect:/movies";
 	}
 	
 	@GetMapping({"/movie"})
 	public String movies(@RequestParam Integer id, Model model)
-	{	
+	{
 		model.addAttribute("movie",this.filmsService.getFilmById(id));
-		
 		return "details";
 	}
 }

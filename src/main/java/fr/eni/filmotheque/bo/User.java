@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -44,10 +39,8 @@ public class User implements UserDetails
 	@Column(columnDefinition = "boolean default false")
 	private Boolean admin;
 	
-	@Transient
+	@OneToMany(cascade = {CascadeType.PERSIST},	mappedBy = "user")
 	private List<Review> reviews;
-	
-	
 	
 	public User() {
 		super();

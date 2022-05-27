@@ -9,8 +9,7 @@
 
 	<header data-th-insert="fragments/header :: header"></header>
 
-	
-	<h1>Les films de l'ENI</h1>
+	<h1 data-th-text="${movie.title}"></h1>
 		
 	<label>Genre : </label>
 	<input type="text" id="genre"  name="genre" disabled data-th-attr="value=${movie.genre.name}"><br>
@@ -18,27 +17,24 @@
 	<label>Année : </label>
 	<input type="text" id="annee"  name="annee" disabled data-th-attr="value=${movie.releaseYear}"><br>
 	
-	<label>Titre : </label>
-	<input type="text" id="titre"  name="titre" disabled data-th-attr="value=${movie.title}"><br>
-	
 	<label>Réalisateur : </label>
-	<input type="text" id="realisateur"  name="realisateur" disabled data-th-attr="value=${movie.director.firstName}"><br>
-	
-	<label>Durée : </label>
-	<input type="text" id="duree"  name="duree" disabled data-th-attr="value=${movie.duration}"><br>
+	<input type="text" id="realisateur"  name="realisateur" disabled data-th-attr="value=${movie.director.firstName + ' ' + movie.director.lastName}"><br>
+
+	<div>Durée : <span data-th-text="${movie.duration/60} + ' h ' + ${movie.duration%60}"></span></div>
 	
 	<label>Acteur(s) : </label>
 	<ul th:each="actor: ${movie.actors}">
-		<li th:text="${actor.firstName}"/>
+		<li th:text="${actor.firstName + ' ' + actor.lastName}"/>
 	</ul>
 
-	<label>Commentaires(s) :  </label>
-	
-	<ul th:each="review: ${movie.reviews}">
-	<!-- <span th:text="${review.user.pseudo} + ' note : ' + ${review.rating} + '/5'"></span>-->		
-	<span th:text="' note : ' + ${review.rating} + '/5'"></span>
-		<li th:text="${review.comment}"/>		
-	</ul>
-	
+	<h2 data-th-if="${movie.reviews.size() gt 1}">Commentaires :</h2>
+	<h2 data-th-if="${movie.reviews.size() eq 1}">Commentaires :</h2>
+
+	<div th:each="review: ${movie.reviews}">
+		<span th:text="${review.user.pseudo} + ' note : ' + ${review.rating} + '/5'"></span>
+		<span th:text="' note : ' + ${review.rating} + '/5'"></span>
+		<div th:text="${review.comment}"></div>
+	</div>
+
 </body>
 </html>

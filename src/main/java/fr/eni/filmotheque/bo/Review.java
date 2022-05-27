@@ -27,11 +27,11 @@ public class Review
 	@Column(nullable = true)
 	private	LocalDateTime	date;
 	
-	@Transient
+	@ManyToOne
 	private	User			user;
 	
 	@ManyToOne
-	private	Film			film;
+	private	Film film;
 	
 	public Review(){
 	}

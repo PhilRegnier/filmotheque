@@ -2,7 +2,11 @@ package fr.eni.filmotheque.ihm;
 
 import javax.validation.Valid;
 
+import fr.eni.filmotheque.bo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,13 +37,10 @@ public class ReviewsController
 
 	@GetMapping({"/AjoutReview"})
 	public String addPerson(@RequestParam Integer id, Model model)
-	{	
+	{
 		Review review = new Review();
-		
-		//review.setUser();
-		
 		review.setFilm(this.filmsService.getFilmById(id));		
-		model.addAttribute("review",review);
+		model.addAttribute("review", review);
 		
 		return "ajout_review";
 	}
@@ -52,6 +53,14 @@ public class ReviewsController
 		{
 			return "addreview";
 		}
+		System.out.println("------------------");
+		System.out.println(review.getFilm().getTitle());
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication instanceof AnonymousAuthenticationToken) {
+			return "redirect:/";
+		}
+		review.setUser((User) authentication.getPrincipal());
 		
 		this.reviewService.insert(review);
 		

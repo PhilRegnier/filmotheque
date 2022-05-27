@@ -1,6 +1,7 @@
 package fr.eni.filmotheque.bo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -37,14 +38,16 @@ public class Person
 	@NotNull(message = "La date est obligatoire")
 	private LocalDate birthday;
 		
-	@ManyToMany(mappedBy="actors")
+	@ManyToMany(mappedBy = "actors")
 	private List<Film> playedFilms;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST},
-			mappedBy="director")
+	@OneToMany(cascade = {CascadeType.PERSIST},	mappedBy = "director")
 	private List<Film> directedFilms;
 
-	public Person() {}
+	public Person() {
+		this.playedFilms = new ArrayList<Film>();
+		this.directedFilms = new ArrayList<Film>();
+	}
 
 	public Person(String firstName, String lastName, LocalDate birthday) {
 		this();
@@ -93,10 +96,16 @@ public class Person
 		this.playedFilms = playedFilms;
 	}
 
+	public void setPlayedFilm(Film film) {
+		this.playedFilms.add(film);
+	}
+
 	public List<Film> getDirectedFilms() {
 		return directedFilms;
 	}
-
+	public void setDirectedFilm(Film film) {
+		this.directedFilms.add(film);
+	}
 	public void setDirectedFilms(List<Film> directedFilms) {
 		this.directedFilms = directedFilms;
 	}
