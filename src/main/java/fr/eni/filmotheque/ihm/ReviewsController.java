@@ -46,21 +46,22 @@ public class ReviewsController
 	}
 	
 	@PostMapping({"/addreview"})
-	public String traitForm(@Valid @ModelAttribute("review") Review review,
-							BindingResult validationResult)	
+	public String traitForm(
+			@Valid @ModelAttribute("review") Review review,
+			@Valid @ModelAttribute("filmId") Integer filmId,
+			BindingResult validationResult)	
 	{
 		if(validationResult.hasErrors()) 
 		{
 			return "addreview";
 		}
-		System.out.println("------------------");
-		System.out.println(review.getFilm().getTitle());
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (authentication instanceof AnonymousAuthenticationToken) {
 			return "redirect:/";
 		}
 		review.setUser((User) authentication.getPrincipal());
+		review.setFilm(this.filmsService.getFilmById(filmId));
 		
 		this.reviewService.insert(review);
 		
